@@ -20,16 +20,16 @@ class Circle {
     var radius = CGFloat()
     
     init () {
-        let point = generatePoint(circleDefaults.width, circleDefaults.height)
+        let zeroPoint = generatePoint(circleDefaults.width, circleDefaults.height)
         
-        layer.frame = CGRect(x: point.x, y: point.y, width: circleDefaults.width, height: circleDefaults.height)
+        layer.frame = CGRect(x: zeroPoint.x, y: zeroPoint.y, width: circleDefaults.width, height: circleDefaults.height)
         layer.lineWidth = circleDefaults.lineWidth
         layer.fillColor = self.generateRandomColor()
         layer.path = CGPath(ellipseIn: layer.frame, transform: nil)
         layer.isHidden = true
         
         radius = circleDefaults.width / 2
-        center = CGPoint(x: point.x + radius, y: point.y + radius)
+        center = CGPoint(x: zeroPoint.x + radius, y: zeroPoint.y + radius)
     }
     
     convenience init (x: CGFloat, y: CGFloat) {
