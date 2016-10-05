@@ -6,10 +6,11 @@
 //  Copyright © 2016 Roman Faizullin. All rights reserved.
 //
 
-import Foundation
+import AppKit
 
 protocol FigureUtils {
     func generateRandomColor() -> CGColor
+    func generatePoint (_ figureWidth: CGFloat, _ figureHeight: CGFloat) -> CGPoint
 }
 
 extension FigureUtils {
@@ -19,5 +20,12 @@ extension FigureUtils {
         let brightness : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from black
         
         return CGColor(red: hue, green: saturation, blue: brightness, alpha: 1)
+    }
+    
+    func generatePoint (_ figureWidth: CGFloat, _ figureHeight: CGFloat) -> CGPoint {
+        let x = CGFloat(arc4random_uniform(UInt32(canvasDefaults.width - figureWidth))) / (NSScreen.main()?.backingScaleFactor)!
+        let y = CGFloat(arc4random_uniform(UInt32(canvasDefaults.height - figureHeight))) / (NSScreen.main()?.backingScaleFactor)!
+        
+        return CGPoint(x: x, y: y)
     }
 }
