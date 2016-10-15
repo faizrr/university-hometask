@@ -64,6 +64,13 @@ class ViewController: NSViewController {
         circles[circleComboBox.indexOfSelectedItem].radius += 2.0
     }
     
+    @IBAction func addRectangle(_ sender: AnyObject) {
+        let rect = Rectangle()
+        
+        addRectangleToCanvas(rectangle: rect)
+        rect.show()
+    }
+    
     private func initializeCanvas () {
         canvas.layer = CALayer()
         canvas.layer?.masksToBounds = true
@@ -72,5 +79,9 @@ class ViewController: NSViewController {
     
     private func addCircleToCanvas (circle: Circle) {
         canvas.layer?.addSublayer(circle.layer)
+    }
+    
+    private func addRectangleToCanvas (rectangle: Rectangle) {
+        canvas.layer?.addSublayer(rectangle.layer)
     }
 }
