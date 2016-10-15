@@ -54,6 +54,16 @@ class ViewController: NSViewController {
         }
     }
     
+    @IBAction func removeCircle(_ sender: AnyObject) {
+        circles.remove(at: circleComboBox.indexOfSelectedItem)
+        canvas.layer?.sublayers?.remove(at: circleComboBox.indexOfSelectedItem)
+        circleComboBox.removeItem(at: circleComboBox.indexOfSelectedItem)
+    }
+    
+    @IBAction func increaseCircleSize(_ sender: AnyObject) {
+        circles[circleComboBox.indexOfSelectedItem].radius += 2.0
+    }
+    
     private func initializeCanvas () {
         canvas.layer = CALayer()
         canvas.layer?.masksToBounds = true

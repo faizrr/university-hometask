@@ -9,32 +9,41 @@
 import AppKit
 
 fileprivate struct circleDefaults {
-    static let width:CGFloat = 50.0
-    static let height:CGFloat = 50.0
+    static let radius:CGFloat = 25.0
     static let lineWidth:CGFloat = 2.0
 }
 
 class Circle {
     var layer = CAShapeLayer()
     var center = CGPoint()
-    var radius = CGFloat()
+    var radius: CGFloat = 0.0 {
+        didSet {
+            layer.frame.size = CGSize(width: radius * 2, height: radius * 2)
+            layer.path = CGPath(ellipseIn: layer.frame, transform: nil)
+        }
+    }
+    var color:CGColor?
     
     init () {
-        let zeroPoint = generatePoint(circleDefaults.width, circleDefaults.height)
+        color = self.generateRandomColor()
+        let frameWidth = circleDefaults.radius * 2
+        let frameHeight = frameWidth
         
-        layer.frame = CGRect(x: zeroPoint.x, y: zeroPoint.y, width: circleDefaults.width, height: circleDefaults.height)
+        let zeroPoint = generatePoint(frameWidth, frameHeight)
+        
+        layer.frame = CGRect(x: zeroPoint.x, y: zeroPoint.y, width: frameWidth, height: frameHeight)
         layer.lineWidth = circleDefaults.lineWidth
-        layer.fillColor = self.generateRandomColor()
+        layer.fillColor = color
         layer.path = CGPath(ellipseIn: layer.frame, transform: nil)
         layer.isHidden = true
         
-        radius = circleDefaults.width / 2
+        radius = circleDefaults.radius
         center = CGPoint(x: zeroPoint.x + radius, y: zeroPoint.y + radius)
     }
     
     convenience init (x: CGFloat, y: CGFloat) {
         self.init()
-        layer.frame = CGRect(x: x, y: y, width: circleDefaults.width, height: circleDefaults.height)
+        layer.frame.origin = CGPoint(x: x, y: y)
     }
     
     func show () {
