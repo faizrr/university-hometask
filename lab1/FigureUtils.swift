@@ -8,6 +8,10 @@
 
 import AppKit
 
+enum PointError: String, Error {
+    case InvalidPoint = "Point is incorrect, because figure goes beyond the canvas"
+}
+
 protocol FigureUtils {
     func generateRandomColor() -> CGColor
     func generatePoint (_ figureWidth: CGFloat, _ figureHeight: CGFloat) -> CGPoint
@@ -27,5 +31,20 @@ extension FigureUtils {
         let y = CGFloat(arc4random_uniform(UInt32(canvasDefaults.height - figureHeight))) / (NSScreen.main()?.backingScaleFactor)!
         
         return CGPoint(x: x, y: y)
+    }
+    
+    func checkPoint (pointToCheck: CGPoint, figureSize: CGSize) throws {
+        let x = pointToCheck.x * (NSScreen.main()?.backingScaleFactor)!
+        let y = pointToCheck.y * (NSScreen.main()?.backingScaleFactor)!
+        let width = figureSize.width
+        let height = figureSize.height
+        
+        if (x + width > canvasDefaults.width) {
+            throw PointError.InvalidPoint
+        } else if (y + height > canvasDefaults.height) {
+            throw PointError.InvalidPoint
+        } else if (x < 0 || y < 0) {
+            throw PointError.InvalidPoint
+        }
     }
 }

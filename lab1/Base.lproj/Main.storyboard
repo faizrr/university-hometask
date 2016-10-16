@@ -718,7 +718,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="addCircle:" target="XfG-lQ-9wD" id="8kh-tc-idY"/>
+                                    <action selector="addCircleAction:" target="XfG-lQ-9wD" id="UCx-mL-hqA"/>
                                 </connections>
                             </button>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HYW-ip-tba">
@@ -792,15 +792,42 @@
                                     <action selector="removeCircle:" target="XfG-lQ-9wD" id="ehV-EH-R1e"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQf-eQ-Xz9">
-                                <rect key="frame" x="438" y="63" width="115" height="32"/>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cCc-P1-UMk">
+                                <rect key="frame" x="444" y="66" width="49" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Increase size" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fmS-SM-qpI">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="newX" drawsBackground="YES" id="r1h-EN-PlC">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Evx-0S-aDK">
+                                <rect key="frame" x="501" y="66" width="46" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="newY" drawsBackground="YES" id="aof-9w-ED8">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lKT-Bv-vnx">
+                                <rect key="frame" x="444" y="39" width="49" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="newR" drawsBackground="YES" id="M85-fJ-VXO">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DSM-6Z-wnJ">
+                                <rect key="frame" x="495" y="32" width="58" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uKX-u2-nHN">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="increaseCircleSize:" target="XfG-lQ-9wD" id="Tbf-h8-ubC"/>
+                                    <action selector="addCustomCirle:" target="XfG-lQ-9wD" id="b0i-YD-eOl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -810,6 +837,9 @@
                         <outlet property="circleComboBox" destination="HYW-ip-tba" id="xGu-R8-Qtj"/>
                         <outlet property="dxField" destination="WCw-8Z-TEy" id="htr-79-S29"/>
                         <outlet property="dyField" destination="YPC-zB-XM5" id="KLz-b2-0mD"/>
+                        <outlet property="newCircleR" destination="lKT-Bv-vnx" id="V5h-hS-SCB"/>
+                        <outlet property="newCircleX" destination="cCc-P1-UMk" id="7D4-qS-lnT"/>
+                        <outlet property="newCircleY" destination="Evx-0S-aDK" id="Peg-HA-HIP"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

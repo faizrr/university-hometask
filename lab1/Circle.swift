@@ -41,9 +41,17 @@ class Circle {
         center = CGPoint(x: zeroPoint.x + radius, y: zeroPoint.y + radius)
     }
     
-    convenience init (x: CGFloat, y: CGFloat) {
+    convenience init (x: Int32, y: Int32, r: Int32) throws {
         self.init()
-        layer.frame.origin = CGPoint(x: x, y: y)
+        
+        let newOrigin = CGPoint(x: CGFloat(x), y: CGFloat(y))
+        let newSize = CGSize(width: CGFloat(r) * 2, height: CGFloat(r) * 2)
+        try self.checkPoint(pointToCheck: newOrigin, figureSize: newSize)
+        layer.frame = CGRect(origin: newOrigin, size: newSize)
+
+        defer {
+            radius = CGFloat(r)
+        }
     }
     
     func show () {

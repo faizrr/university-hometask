@@ -30,15 +30,10 @@ class ViewController: NSViewController {
         }
     }
 
-    @IBAction func addCircle(_ sender: AnyObject) {
+    @IBAction func addCircleAction(_ sender: AnyObject) {
         let circle = Circle()
         
-        addCircleToCanvas(circle: circle)
-        circle.show()
-        
-        circles.append(circle)
-        
-        circleComboBox.addItem(withObjectValue: "Circle \(circles.count)")
+        addCircle(circle: circle)
     }
     
     @IBAction func moveCircle(_ sender: AnyObject) {
@@ -60,10 +55,20 @@ class ViewController: NSViewController {
         circleComboBox.removeItem(at: circleComboBox.indexOfSelectedItem)
     }
     
-    @IBAction func increaseCircleSize(_ sender: AnyObject) {
-        circles[circleComboBox.indexOfSelectedItem].radius += 2.0
+    @IBOutlet weak var newCircleX: NSTextField!
+    @IBOutlet weak var newCircleY: NSTextField!
+    @IBOutlet weak var newCircleR: NSTextField!
+    @IBAction func addCustomCirle(_ sender: AnyObject) {
+        do {
+            let newCircle = try Circle(x: newCircleX.intValue, y: newCircleY.intValue, r: newCircleR.intValue)
+            addCircle(circle: newCircle)
+            print(newCircle.layer.frame)
+        } catch {
+            print("Incorrect X, Y or R")
+        }
+        
     }
-    
+
     @IBAction func addRectangle(_ sender: AnyObject) {
         let rect = Rectangle()
         
@@ -77,11 +82,16 @@ class ViewController: NSViewController {
         canvas.layer?.backgroundColor = CGColor.white
     }
     
-    private func addCircleToCanvas (circle: Circle) {
-        canvas.layer?.addSublayer(circle.layer)
-    }
-    
     private func addRectangleToCanvas (rectangle: Rectangle) {
         canvas.layer?.addSublayer(rectangle.layer)
+    }
+    
+    private func addCircle (circle: Circle) {
+        canvas.layer?.addSublayer(circle.layer)
+        circle.show()
+        
+        circles.append(circle)
+        
+        circleComboBox.addItem(withObjectValue: "Circle \(circles.count)")
     }
 }
