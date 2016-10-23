@@ -15,7 +15,11 @@ fileprivate struct circleDefaults {
 
 class Circle {
     var layer = CAShapeLayer()
-    var center = CGPoint()
+    var center: CGPoint = CGPoint() {
+        didSet {
+            layer.position = CGPoint(x: center.x - radius, y: center.y - radius)
+        }
+    }
     var radius: CGFloat = 0.0 {
         didSet {
             layer.frame.size = CGSize(width: radius * 2, height: radius * 2)

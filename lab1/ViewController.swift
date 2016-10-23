@@ -68,12 +68,17 @@ class ViewController: NSViewController {
         }
         
     }
-
+    
     @IBAction func addRectangle(_ sender: AnyObject) {
         let rect = Rectangle()
         
         addRectangleToCanvas(rectangle: rect)
         rect.show()
+    }
+    
+    @IBAction func addRingAction(_ sender: AnyObject) {
+        let ring = Ring()
+        addRing(ring: ring)
     }
     
     private func initializeCanvas () {
@@ -93,5 +98,10 @@ class ViewController: NSViewController {
         circles.append(circle)
         
         circleComboBox.addItem(withObjectValue: "Circle \(circles.count)")
+    }
+    
+    private func addRing (ring: Ring) {
+        canvas.layer?.addSublayer(ring.layer)
+        ring.show()
     }
 }
