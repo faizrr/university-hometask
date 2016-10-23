@@ -13,7 +13,7 @@ fileprivate struct rectangleDefaults {
     static let height:CGFloat = 60.0
 }
 
-class Rectangle {
+class Rectangle: Figure {
     var layer = CAShapeLayer()
     var leftUpperCorner = CGPoint()
     var width = CGFloat()

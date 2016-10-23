@@ -13,7 +13,7 @@ fileprivate struct circleDefaults {
     static let lineWidth:CGFloat = 2.0
 }
 
-class Circle {
+class Circle: Figure {
     var layer = CAShapeLayer()
     var center: CGPoint = CGPoint() {
         didSet {

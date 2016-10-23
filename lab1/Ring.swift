@@ -13,7 +13,7 @@ fileprivate struct ringDefaults {
     static let r2:CGFloat = 20.0
 }
 
-class Ring {
+class Ring: Figure {
     var layer = CAShapeLayer()
     var center: CGPoint = CGPoint() {
         didSet {
