@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		305DB8EE1DBCBBE900E1C2CB /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305DB8ED1DBCBBE900E1C2CB /* Figure.swift */; };
+		305DB8F11DBCFA8F00E1C2CB /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305DB8F01DBCFA8F00E1C2CB /* Ellipse.swift */; };
 		306EFA931DA4DF46000D5420 /* FigureUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306EFA921DA4DF46000D5420 /* FigureUtils.swift */; };
 		306EFA951DA4E045000D5420 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306EFA941DA4E045000D5420 /* Rectangle.swift */; };
 		30EA60041DB41DD200FA9028 /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EA60031DB41DD200FA9028 /* Ring.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		305DB8ED1DBCBBE900E1C2CB /* Figure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
+		305DB8F01DBCFA8F00E1C2CB /* Ellipse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ellipse.swift; sourceTree = "<group>"; };
 		306EFA921DA4DF46000D5420 /* FigureUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigureUtils.swift; sourceTree = "<group>"; };
 		306EFA941DA4E045000D5420 /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
 		30EA60031DB41DD200FA9028 /* Ring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				30F53D281DA10B9D0035C3C6 /* Circle.swift */,
 				306EFA941DA4E045000D5420 /* Rectangle.swift */,
 				30EA60031DB41DD200FA9028 /* Ring.swift */,
+				305DB8F01DBCFA8F00E1C2CB /* Ellipse.swift */,
 			);
 			name = Figures;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				30EA60041DB41DD200FA9028 /* Ring.swift in Sources */,
 				306EFA931DA4DF46000D5420 /* FigureUtils.swift in Sources */,
 				306EFA951DA4E045000D5420 /* Rectangle.swift in Sources */,
+				305DB8F11DBCFA8F00E1C2CB /* Ellipse.swift in Sources */,
 				30F53D291DA10B9D0035C3C6 /* Circle.swift in Sources */,
 				30F53D2B1DA122170035C3C6 /* Constants.swift in Sources */,
 			);

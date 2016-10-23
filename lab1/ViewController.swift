@@ -85,6 +85,12 @@ class ViewController: NSViewController {
         addFigureToCanvas(ring)
     }
     
+    @IBAction func addEllipseAction(_ sender: AnyObject) {
+        let ellipse = Ellipse()
+        
+        addFigureToCanvas(ellipse)
+    }
+    
     private func initializeCanvas () {
         canvas.layer = CALayer()
         canvas.layer?.masksToBounds = true
