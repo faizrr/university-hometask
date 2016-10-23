@@ -33,7 +33,11 @@ class ViewController: NSViewController {
     @IBAction func addCircleAction(_ sender: AnyObject) {
         let circle = Circle()
         
-        addCircle(circle: circle)
+        circles.append(circle)
+        
+        circleComboBox.addItem(withObjectValue: "Circle \(circles.count)")
+        
+        addFigureToCanvas(circle)
     }
     
     @IBAction func moveCircle(_ sender: AnyObject) {
@@ -61,7 +65,7 @@ class ViewController: NSViewController {
     @IBAction func addCustomCirle(_ sender: AnyObject) {
         do {
             let newCircle = try Circle(x: newCircleX.intValue, y: newCircleY.intValue, r: newCircleR.intValue)
-            addCircle(circle: newCircle)
+            addFigureToCanvas(newCircle)
             print(newCircle.layer.frame)
         } catch {
             print("Incorrect X, Y or R")
@@ -72,13 +76,13 @@ class ViewController: NSViewController {
     @IBAction func addRectangle(_ sender: AnyObject) {
         let rect = Rectangle()
         
-        addRectangleToCanvas(rectangle: rect)
-        rect.show()
+        addFigureToCanvas(rect)
     }
     
     @IBAction func addRingAction(_ sender: AnyObject) {
         let ring = Ring()
-        addRing(ring: ring)
+        
+        addFigureToCanvas(ring)
     }
     
     private func initializeCanvas () {
@@ -87,21 +91,8 @@ class ViewController: NSViewController {
         canvas.layer?.backgroundColor = CGColor.white
     }
     
-    private func addRectangleToCanvas (rectangle: Rectangle) {
-        canvas.layer?.addSublayer(rectangle.layer)
-    }
-    
-    private func addCircle (circle: Circle) {
-        canvas.layer?.addSublayer(circle.layer)
-        circle.show()
-        
-        circles.append(circle)
-        
-        circleComboBox.addItem(withObjectValue: "Circle \(circles.count)")
-    }
-    
-    private func addRing (ring: Ring) {
-        canvas.layer?.addSublayer(ring.layer)
-        ring.show()
+    private func addFigureToCanvas (_ figure: Figure) {
+        canvas.layer?.addSublayer(figure.layer)
+        figure.show()
     }
 }

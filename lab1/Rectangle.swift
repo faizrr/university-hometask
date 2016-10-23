@@ -35,14 +35,6 @@ class Rectangle {
     convenience init (width: CGFloat, height: CGFloat) {
         self.init()
     }
-    
-    func show () {
-        layer.isHidden = false
-    }
-    
-    func moveTo (dx: Int32, dy: Int32) {
-        layer.position = CGPoint(x: layer.position.x + CGFloat(dx), y: layer.position.y + CGFloat(dy))
-    }
 }
 
 extension Rectangle: FigureUtils {}

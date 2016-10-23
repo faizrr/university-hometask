@@ -57,14 +57,6 @@ class Circle {
             radius = CGFloat(r)
         }
     }
-    
-    func show () {
-        layer.isHidden = false
-    }
-    
-    func moveTo (dx: Int32, dy: Int32) {
-        layer.position = CGPoint(x: layer.position.x + CGFloat(dx), y: layer.position.y + CGFloat(dy))
-    }
 }
 
 extension Circle: FigureUtils {}

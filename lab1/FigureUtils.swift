@@ -12,12 +12,20 @@ enum PointError: String, Error {
     case InvalidPoint = "Point is incorrect, because figure goes beyond the canvas"
 }
 
-protocol FigureUtils {
+protocol FigureUtils: Figure {
     func generateRandomColor() -> CGColor
     func generatePoint (_ figureWidth: CGFloat, _ figureHeight: CGFloat) -> CGPoint
 }
 
 extension FigureUtils {
+    func show () {
+        layer.isHidden = false
+    }
+    
+    func moveTo (dx: Int32, dy: Int32) {
+        layer.position = CGPoint(x: layer.position.x + CGFloat(dx), y: layer.position.y + CGFloat(dy))
+    }
+    
     func generateRandomColor() -> CGColor {
         let hue : CGFloat = CGFloat(arc4random() % 256) / 256 // use 256 to get full range from 0.0 to 1.0
         let saturation : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from white
