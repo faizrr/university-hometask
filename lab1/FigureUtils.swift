@@ -26,6 +26,10 @@ extension FigureUtils {
         layer.position = CGPoint(x: layer.position.x + CGFloat(dx), y: layer.position.y + CGFloat(dy))
     }
     
+    func setRandomColor () {
+        layer.fillColor = generateRandomColor()
+    }
+    
     func generateRandomColor() -> CGColor {
         let hue : CGFloat = CGFloat(arc4random() % 256) / 256 // use 256 to get full range from 0.0 to 1.0
         let saturation : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from white

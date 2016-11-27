@@ -52,6 +52,11 @@ class ViewController: NSViewController, NSComboBoxDelegate, NSComboBoxDataSource
         canvas.layer?.sublayers?.remove(at: indexOfFigureToDelete)
     }
     
+    @IBAction func changeColorAction(_ sender: AnyObject) {
+        let index = figuresComboBox.indexOfSelectedItem
+        figures[index].setRandomColor()
+    }
+    
     @IBAction func addCircleAction(_ sender: AnyObject) {
         addFigure(Circle())
     }

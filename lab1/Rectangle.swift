@@ -22,7 +22,6 @@ class Rectangle: Figure {
     init () {
         let zeroPoint = generatePoint(rectangleDefaults.width, rectangleDefaults.height)
         
-        layer.fillColor = self.generateRandomColor()
         layer.frame = CGRect(x: zeroPoint.x, y: zeroPoint.y, width: rectangleDefaults.width, height: rectangleDefaults.height)
         layer.path = CGPath(rect: layer.frame, transform: nil)
         layer.isHidden = true
@@ -30,6 +29,8 @@ class Rectangle: Figure {
         width = rectangleDefaults.width
         height = rectangleDefaults.height
         leftUpperCorner = CGPoint(x: zeroPoint.x + width, y: zeroPoint.y + height)
+        
+        setRandomColor()
     }
     
     convenience init (width: CGFloat, height: CGFloat) {

@@ -26,10 +26,8 @@ class Circle: Figure {
             layer.path = CGPath(ellipseIn: layer.frame, transform: nil)
         }
     }
-    var color:CGColor?
     
     init () {
-        color = self.generateRandomColor()
         let frameWidth = circleDefaults.radius * 2
         let frameHeight = frameWidth
         
@@ -37,12 +35,13 @@ class Circle: Figure {
         
         layer.frame = CGRect(x: zeroPoint.x, y: zeroPoint.y, width: frameWidth, height: frameHeight)
         layer.lineWidth = circleDefaults.lineWidth
-        layer.fillColor = color
         layer.path = CGPath(ellipseIn: layer.frame, transform: nil)
         layer.isHidden = true
         
         radius = circleDefaults.radius
         center = CGPoint(x: zeroPoint.x + radius, y: zeroPoint.y + radius)
+        
+        setRandomColor()
     }
     
     convenience init (x: Int32, y: Int32, r: Int32) throws {

@@ -13,4 +13,5 @@ protocol Figure {
     
     func show()
     func moveTo(dx: Int32, dy: Int32)
+    func setRandomColor()
 }

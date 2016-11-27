@@ -30,11 +30,8 @@ class Ring: Figure {
             redrawRing()
         }
     }
-    var color:CGColor?
     
     init () {
-        color = generateRandomColor()
-        
         innerRadius = ringDefaults.r1
         outerRadius = ringDefaults.r2
         
@@ -44,12 +41,13 @@ class Ring: Figure {
         
         layer.frame = CGRect(x: zeroPoint.x, y: zeroPoint.y, width: frameWidth, height: frameHeight)
         layer.lineWidth = 3.0
-        layer.strokeColor = color
         layer.fillColor = nil
         layer.path = CGPath(ellipseIn: layer.frame, transform: nil)
         layer.isHidden = true
         
         center = CGPoint(x: zeroPoint.x + outerRadius, y: zeroPoint.y + outerRadius)
+        
+        setRandomColor()
     }
     
     convenience init (x: CGFloat, y: CGFloat, visible: Bool) {
@@ -63,6 +61,11 @@ class Ring: Figure {
         
         layer.frame = CGRect(x: x, y: y, width: frameWidth, height: frameHeight)
         layer.path = CGPath(ellipseIn: layer.frame, transform: nil)
+    }
+    
+    func setRandomColor () {
+        layer.fillColor = nil
+        layer.strokeColor = self.generateRandomColor()
     }
     
     func show () {

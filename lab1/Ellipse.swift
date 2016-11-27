@@ -19,16 +19,16 @@ class Ellipse: Figure {
     var r2 = CGFloat()
     
     init () {
-        let color = self.generateRandomColor()
         let frameWidth = ellipseDefaults.r1 * 2
         let frameHeight = ellipseDefaults.r2 * 2
         
         let zeroPoint = generatePoint(frameWidth, frameHeight)
         
         layer.frame = CGRect(x: zeroPoint.x, y: zeroPoint.y, width: frameWidth, height: frameHeight)
-        layer.fillColor = color
         layer.path = CGPath(ellipseIn: layer.frame, transform: nil)
         layer.isHidden = true
+        
+        setRandomColor()
     }
 }
 

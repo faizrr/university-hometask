@@ -27,8 +27,10 @@ class OlympicRing: Figure {
         addCircles()
     }
     
-    func changeRingColorAt(index: Int, color: CGColor) {
-        rings[index].color = color
+    func setRandomColor() {
+        for r in rings {
+            r.setRandomColor()
+        }
     }
     
     private func addCircles () {
