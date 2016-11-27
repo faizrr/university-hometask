@@ -8,20 +8,21 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSComboBoxDelegate, NSComboBoxDataSource {
 
     @IBOutlet weak var canvas: NSImageView!
-    @IBOutlet weak var circleComboBox: NSComboBox!
+    
+    @IBOutlet weak var figuresComboBox: NSComboBox!
     
     @IBOutlet weak var dxField: NSTextField!
     @IBOutlet weak var dyField: NSTextField!
     
-    var circles = [Circle]()
-    var olympicRings = [OlympicRing]()
+    var figures = [Figure]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeCanvas()
+        figuresComboBox.dataSource = self
         // Do any additional setup after loading the view.
     }
 
@@ -30,76 +31,50 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
+    
+    @IBAction func moveFigure(_ sender: AnyObject) {
+        let index = figuresComboBox.indexOfSelectedItem
+        let figureToMove = figures[index]
+        
+        figureToMove.moveTo(dx: dxField.intValue, dy: dyField.intValue)
+    }
+    
+    @IBAction func moveAllFigures(_ sender: AnyObject) {
+        for figure in figures {
+            figure.moveTo(dx: dxField.intValue, dy: dyField.intValue)
+        }
+    }
+    
+    @IBAction func removeFigure(_ sender: AnyObject) {
+        let indexOfFigureToDelete = figuresComboBox.indexOfSelectedItem
+        
+        figures.remove(at: indexOfFigureToDelete)
+        canvas.layer?.sublayers?.remove(at: indexOfFigureToDelete)
+    }
+    
     @IBAction func addCircleAction(_ sender: AnyObject) {
         let circle = Circle()
-        
-        circles.append(circle)
-        
-        circleComboBox.addItem(withObjectValue: "Circle \(circles.count)")
-        
-        addFigureToCanvas(circle)
+        addFigure(circle)
     }
     
-    @IBAction func moveCircle(_ sender: AnyObject) {
-        let index = circleComboBox.indexOfSelectedItem
-        let circleToMove = circles[index]
-        
-        circleToMove.moveTo(dx: dxField.intValue, dy: dyField.intValue)
-    }
-    
-    @IBAction func moveAllCircles(_ sender: AnyObject) {
-        for circle in circles {
-            circle.moveTo(dx: dxField.intValue, dy: dyField.intValue)
-        }
-        for figure in olympicRings {
-            figure.moveTo(dx: dxField.intValue, dy: dxField.intValue)
-        }
-    }
-    
-    @IBAction func removeCircle(_ sender: AnyObject) {
-        circles.remove(at: circleComboBox.indexOfSelectedItem)
-        canvas.layer?.sublayers?.remove(at: circleComboBox.indexOfSelectedItem)
-        circleComboBox.removeItem(at: circleComboBox.indexOfSelectedItem)
-    }
-    
-    @IBOutlet weak var newCircleX: NSTextField!
-    @IBOutlet weak var newCircleY: NSTextField!
-    @IBOutlet weak var newCircleR: NSTextField!
-    @IBAction func addCustomCirle(_ sender: AnyObject) {
-        do {
-            let newCircle = try Circle(x: newCircleX.intValue, y: newCircleY.intValue, r: newCircleR.intValue)
-            addFigureToCanvas(newCircle)
-            print(newCircle.layer.frame)
-        } catch {
-            print("Incorrect X, Y or R")
-        }
-        
-    }
-    
-    @IBAction func addRectangle(_ sender: AnyObject) {
+    @IBAction func addRectangleAction(_ sender: AnyObject) {
         let rect = Rectangle()
-        
-        addFigureToCanvas(rect)
+        addFigure(rect)
     }
     
     @IBAction func addRingAction(_ sender: AnyObject) {
         let ring = Ring()
-        
-        addFigureToCanvas(ring)
+        addFigure(ring)
     }
     
     @IBAction func addEllipseAction(_ sender: AnyObject) {
         let ellipse = Ellipse()
-        
-        addFigureToCanvas(ellipse)
+        addFigure(ellipse)
     }
     
     @IBAction func addOlympicRingsAction(_ sender: AnyObject) {
         let f = OlympicRing()
-        olympicRings.append(f)
-        
-        addFigureToCanvas(f)
+        addFigure(f)
     }
     
     private func initializeCanvas () {
@@ -108,8 +83,24 @@ class ViewController: NSViewController {
         canvas.layer?.backgroundColor = CGColor.white
     }
     
+    private func addFigure(_ figure: Figure) {
+        addFigureToCanvas(figure)
+        figures.append(figure)
+    }
+    
     private func addFigureToCanvas (_ figure: Figure) {
         canvas.layer?.addSublayer(figure.layer)
         figure.show()
+    }
+    
+    // NSComboBox-related things
+    
+    func numberOfItems(in comboBox: NSComboBox) -> Int {
+        return figures.count
+    }
+    
+    func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
+        let figureType = String(describing: type(of: figures[index]))
+        return "Figure #\(index + 1) (\(figureType))"
     }
 }
