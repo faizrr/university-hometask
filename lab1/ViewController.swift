@@ -53,28 +53,23 @@ class ViewController: NSViewController, NSComboBoxDelegate, NSComboBoxDataSource
     }
     
     @IBAction func addCircleAction(_ sender: AnyObject) {
-        let circle = Circle()
-        addFigure(circle)
+        addFigure(Circle())
     }
     
     @IBAction func addRectangleAction(_ sender: AnyObject) {
-        let rect = Rectangle()
-        addFigure(rect)
+        addFigure(Rectangle())
     }
     
     @IBAction func addRingAction(_ sender: AnyObject) {
-        let ring = Ring()
-        addFigure(ring)
+        addFigure(Ring())
     }
     
     @IBAction func addEllipseAction(_ sender: AnyObject) {
-        let ellipse = Ellipse()
-        addFigure(ellipse)
+        addFigure(Ellipse())
     }
     
     @IBAction func addOlympicRingsAction(_ sender: AnyObject) {
-        let f = OlympicRing()
-        addFigure(f)
+        addFigure(OlympicRing())
     }
     
     private func initializeCanvas () {
