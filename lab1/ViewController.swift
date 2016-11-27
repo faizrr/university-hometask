@@ -8,21 +8,20 @@
 
 import Cocoa
 
-class ViewController: NSViewController, NSComboBoxDelegate, NSComboBoxDataSource {
+class ViewController: NSViewController {
 
     @IBOutlet weak var canvas: NSImageView!
     
     @IBOutlet weak var figuresComboBox: NSComboBox!
+    let figures = FiguresDataSource()
     
     @IBOutlet weak var dxField: NSTextField!
     @IBOutlet weak var dyField: NSTextField!
     
-    var figures = [Figure]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeCanvas()
-        figuresComboBox.dataSource = self
+        figuresComboBox.dataSource = figures
         // Do any additional setup after loading the view.
     }
 
@@ -31,6 +30,8 @@ class ViewController: NSViewController, NSComboBoxDelegate, NSComboBoxDataSource
         // Update the view, if already loaded.
         }
     }
+    
+    // MARK: Simple tab related methods
     
     @IBAction func moveFigure(_ sender: AnyObject) {
         let index = figuresComboBox.indexOfSelectedItem
@@ -77,30 +78,21 @@ class ViewController: NSViewController, NSComboBoxDelegate, NSComboBoxDataSource
         addFigure(OlympicRing())
     }
     
+    private func addFigure(_ figure: Figure) {
+        addFigureToCanvas(figure)
+        figures.append(figure)
+    }
+    
+    
+    
     private func initializeCanvas () {
         canvas.layer = CALayer()
         canvas.layer?.masksToBounds = true
         canvas.layer?.backgroundColor = CGColor.white
     }
     
-    private func addFigure(_ figure: Figure) {
-        addFigureToCanvas(figure)
-        figures.append(figure)
-    }
-    
     private func addFigureToCanvas (_ figure: Figure) {
         canvas.layer?.addSublayer(figure.layer)
         figure.show()
-    }
-    
-    // NSComboBox-related things
-    
-    func numberOfItems(in comboBox: NSComboBox) -> Int {
-        return figures.count
-    }
-    
-    func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
-        let figureType = String(describing: type(of: figures[index]))
-        return "Figure #\(index + 1) (\(figureType))"
     }
 }
