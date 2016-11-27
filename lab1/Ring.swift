@@ -52,6 +52,19 @@ class Ring: Figure {
         center = CGPoint(x: zeroPoint.x + outerRadius, y: zeroPoint.y + outerRadius)
     }
     
+    convenience init (x: CGFloat, y: CGFloat, visible: Bool) {
+        self.init()
+        layer.isHidden = !visible
+        
+        innerRadius = ringDefaults.r1
+        outerRadius = ringDefaults.r2
+        let frameWidth = outerRadius * 2
+        let frameHeight = frameWidth
+        
+        layer.frame = CGRect(x: x, y: y, width: frameWidth, height: frameHeight)
+        layer.path = CGPath(ellipseIn: layer.frame, transform: nil)
+    }
+    
     func show () {
         layer.isHidden = false
     }

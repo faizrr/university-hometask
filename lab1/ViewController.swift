@@ -17,6 +17,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var dyField: NSTextField!
     
     var circles = [Circle]()
+    var olympicRings = [OlympicRing]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,9 @@ class ViewController: NSViewController {
     @IBAction func moveAllCircles(_ sender: AnyObject) {
         for circle in circles {
             circle.moveTo(dx: dxField.intValue, dy: dyField.intValue)
+        }
+        for figure in olympicRings {
+            figure.moveTo(dx: dxField.intValue, dy: dxField.intValue)
         }
     }
     
@@ -89,6 +93,13 @@ class ViewController: NSViewController {
         let ellipse = Ellipse()
         
         addFigureToCanvas(ellipse)
+    }
+    
+    @IBAction func addOlympicRingsAction(_ sender: AnyObject) {
+        let f = OlympicRing()
+        olympicRings.append(f)
+        
+        addFigureToCanvas(f)
     }
     
     private func initializeCanvas () {

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		305DB8EE1DBCBBE900E1C2CB /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305DB8ED1DBCBBE900E1C2CB /* Figure.swift */; };
 		305DB8F11DBCFA8F00E1C2CB /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305DB8F01DBCFA8F00E1C2CB /* Ellipse.swift */; };
+		305DB8F61DBF5CED00E1C2CB /* OlympicRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305DB8F51DBF5CED00E1C2CB /* OlympicRing.swift */; };
 		306EFA931DA4DF46000D5420 /* FigureUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306EFA921DA4DF46000D5420 /* FigureUtils.swift */; };
 		306EFA951DA4E045000D5420 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306EFA941DA4E045000D5420 /* Rectangle.swift */; };
 		30EA60041DB41DD200FA9028 /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EA60031DB41DD200FA9028 /* Ring.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		305DB8ED1DBCBBE900E1C2CB /* Figure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
 		305DB8F01DBCFA8F00E1C2CB /* Ellipse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ellipse.swift; sourceTree = "<group>"; };
+		305DB8F51DBF5CED00E1C2CB /* OlympicRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OlympicRing.swift; sourceTree = "<group>"; };
 		306EFA921DA4DF46000D5420 /* FigureUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigureUtils.swift; sourceTree = "<group>"; };
 		306EFA941DA4E045000D5420 /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
 		30EA60031DB41DD200FA9028 /* Ring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				306EFA941DA4E045000D5420 /* Rectangle.swift */,
 				30EA60031DB41DD200FA9028 /* Ring.swift */,
 				305DB8F01DBCFA8F00E1C2CB /* Ellipse.swift */,
+				305DB8F51DBF5CED00E1C2CB /* OlympicRing.swift */,
 			);
 			name = Figures;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30F53D1C1DA1071F0035C3C6 /* ViewController.swift in Sources */,
+				305DB8F61DBF5CED00E1C2CB /* OlympicRing.swift in Sources */,
 				305DB8EE1DBCBBE900E1C2CB /* Figure.swift in Sources */,
 				30F53D1A1DA1071F0035C3C6 /* AppDelegate.swift in Sources */,
 				30EA60041DB41DD200FA9028 /* Ring.swift in Sources */,
