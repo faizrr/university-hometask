@@ -12,3 +12,5 @@ struct canvasDefaults {
     static let height:CGFloat = 189.0
     static let width:CGFloat = 416.0
 }
+
+let FIGURES_NAMES = ["Circle", "Rectangle", "Ring", "Ellipse"]

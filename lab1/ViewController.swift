@@ -15,14 +15,23 @@ class ViewController: NSViewController {
     @IBOutlet weak var figuresComboBox: NSComboBox!
     let figures = FiguresDataSource()
     
+    @IBOutlet weak var containersComboBox: NSComboBox!
+    let containers = ContainersDataSource()
+    @IBOutlet weak var figureTypesComboBox: NSComboBox!
+    let figureTypes = FigureTypesDataSource()
+    
     @IBOutlet weak var dxField: NSTextField!
     @IBOutlet weak var dyField: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         initializeCanvas()
+        
         figuresComboBox.dataSource = figures
-        // Do any additional setup after loading the view.
+        
+        containersComboBox.dataSource = containers
+        figureTypesComboBox.dataSource = figureTypes
     }
 
     override var representedObject: Any? {
@@ -84,6 +93,90 @@ class ViewController: NSViewController {
     }
     
     
+    private func addFigureToCanvas (_ figure: Figure) {
+        canvas.layer?.addSublayer(figure.layer)
+        figure.show()
+    }
+    
+    // MARK: containers related methods
+    
+    @IBAction func addContainerAction(_ sender: Any) {
+        let c = FigureContainer()
+        containers.append(c)
+        addContainerToCanvas(c)
+    }
+    
+    @IBAction func toggleContainerVisibility(_ sender: Any) {
+        let index = containersComboBox.indexOfSelectedItem
+        let container = containers[index]
+        
+        if (container.isHidden) {
+            container.show()
+        } else {
+            container.hide()
+        }
+    }
+    
+    @IBAction func moveContainer(_ sender: Any) {
+        let index = containersComboBox.indexOfSelectedItem
+        let container = containers[index]
+        
+        container.moveTo(dx: dxField.intValue, dy: dyField.intValue)
+    }
+    
+    @IBAction func removeContainer(_ sender: Any) {
+        let indexOfContainerToDelete = containersComboBox.indexOfSelectedItem
+        
+        containers.remove(at: indexOfContainerToDelete)
+        canvas.layer?.sublayers?.remove(at: indexOfContainerToDelete)
+    }
+    
+    @IBAction func moveFiguresInContainer(_ sender: Any) {
+        let container = containers[containersComboBox.indexOfSelectedItem]
+        
+        container.moveFigures(getSelectedFigureType(), dx: dxField.intValue, dy: dyField.intValue)
+    }
+    
+    @IBAction func changeFiguresColor(_ sender: Any) {
+        let container = containers[containersComboBox.indexOfSelectedItem]
+        
+        container.changeFiguresColor(getSelectedFigureType())
+    }
+
+    @IBAction func showFigures(_ sender: Any) {
+        let container = containers[containersComboBox.indexOfSelectedItem]
+        
+        container.showFigures(getSelectedFigureType())
+    }
+    
+    @IBAction func hideFigures(_ sender: Any) {
+        let container = containers[containersComboBox.indexOfSelectedItem]
+        
+        container.hideFigures(getSelectedFigureType())
+    }
+    
+    private func addContainerToCanvas (_ container: FigureContainer) {
+        canvas.layer?.addSublayer(container.layer)
+        container.show()
+    }
+    
+    private func getSelectedFigureType () -> Figure.Type {
+        let className = FIGURES_NAMES[figureTypesComboBox.indexOfSelectedItem]
+        
+        switch className {
+        case "Circle":
+            return Circle.self
+        case "Rectangle":
+            return Rectangle.self
+        case "Ellipse":
+            return Ellipse.self
+        case "Ring":
+            return Ring.self
+        default:
+            return Circle.self
+        }
+    }
+    
     
     private func initializeCanvas () {
         canvas.layer = CALayer()
@@ -91,8 +184,4 @@ class ViewController: NSViewController {
         canvas.layer?.backgroundColor = CGColor.white
     }
     
-    private func addFigureToCanvas (_ figure: Figure) {
-        canvas.layer?.addSublayer(figure.layer)
-        figure.show()
-    }
 }

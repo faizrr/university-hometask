@@ -12,8 +12,11 @@
 		305DB8F61DBF5CED00E1C2CB /* OlympicRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305DB8F51DBF5CED00E1C2CB /* OlympicRing.swift */; };
 		306EFA931DA4DF46000D5420 /* FigureUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306EFA921DA4DF46000D5420 /* FigureUtils.swift */; };
 		306EFA951DA4E045000D5420 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306EFA941DA4E045000D5420 /* Rectangle.swift */; };
+		30803FF41DEB390300FAC443 /* FigureTypesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30803FF31DEB390300FAC443 /* FigureTypesDataSource.swift */; };
 		30EA60041DB41DD200FA9028 /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EA60031DB41DD200FA9028 /* Ring.swift */; };
 		30EDFC6F1DEB1E5F003B861F /* FiguresDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EDFC6E1DEB1E5F003B861F /* FiguresDataSource.swift */; };
+		30EDFC731DEB2700003B861F /* ContainersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EDFC721DEB2700003B861F /* ContainersDataSource.swift */; };
+		30EDFC761DEB2747003B861F /* FigureContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EDFC751DEB2747003B861F /* FigureContainer.swift */; };
 		30F53D1A1DA1071F0035C3C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F53D191DA1071F0035C3C6 /* AppDelegate.swift */; };
 		30F53D1C1DA1071F0035C3C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F53D1B1DA1071F0035C3C6 /* ViewController.swift */; };
 		30F53D1E1DA1071F0035C3C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30F53D1D1DA1071F0035C3C6 /* Assets.xcassets */; };
@@ -28,8 +31,11 @@
 		305DB8F51DBF5CED00E1C2CB /* OlympicRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OlympicRing.swift; sourceTree = "<group>"; };
 		306EFA921DA4DF46000D5420 /* FigureUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigureUtils.swift; sourceTree = "<group>"; };
 		306EFA941DA4E045000D5420 /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
+		30803FF31DEB390300FAC443 /* FigureTypesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigureTypesDataSource.swift; sourceTree = "<group>"; };
 		30EA60031DB41DD200FA9028 /* Ring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
 		30EDFC6E1DEB1E5F003B861F /* FiguresDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiguresDataSource.swift; sourceTree = "<group>"; };
+		30EDFC721DEB2700003B861F /* ContainersDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainersDataSource.swift; sourceTree = "<group>"; };
+		30EDFC751DEB2747003B861F /* FigureContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigureContainer.swift; sourceTree = "<group>"; };
 		30F53D161DA1071F0035C3C6 /* lab1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lab1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F53D191DA1071F0035C3C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30F53D1B1DA1071F0035C3C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +85,24 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		30803FF21DEB38ED00FAC443 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				30EDFC6E1DEB1E5F003B861F /* FiguresDataSource.swift */,
+				30EDFC721DEB2700003B861F /* ContainersDataSource.swift */,
+				30803FF31DEB390300FAC443 /* FigureTypesDataSource.swift */,
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		30EDFC741DEB2739003B861F /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				30EDFC751DEB2747003B861F /* FigureContainer.swift */,
+			);
+			name = Containers;
+			sourceTree = "<group>";
+		};
 		30F53D0D1DA1071F0035C3C6 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +122,8 @@
 		30F53D181DA1071F0035C3C6 /* lab1 */ = {
 			isa = PBXGroup;
 			children = (
+				30803FF21DEB38ED00FAC443 /* DataSources */,
+				30EDFC741DEB2739003B861F /* Containers */,
 				305DB8EC1DBCBBC500E1C2CB /* Protocols */,
 				306EFA911DA4DF32000D5420 /* Extensions */,
 				306EFA8E1DA4DD91000D5420 /* Figures */,
@@ -107,7 +133,6 @@
 				30F53D1F1DA1071F0035C3C6 /* Main.storyboard */,
 				30F53D221DA1071F0035C3C6 /* Info.plist */,
 				30F53D2A1DA122170035C3C6 /* Constants.swift */,
-				30EDFC6E1DEB1E5F003B861F /* FiguresDataSource.swift */,
 			);
 			path = lab1;
 			sourceTree = "<group>";
@@ -185,11 +210,14 @@
 			files = (
 				30F53D1C1DA1071F0035C3C6 /* ViewController.swift in Sources */,
 				305DB8F61DBF5CED00E1C2CB /* OlympicRing.swift in Sources */,
+				30EDFC731DEB2700003B861F /* ContainersDataSource.swift in Sources */,
 				305DB8EE1DBCBBE900E1C2CB /* Figure.swift in Sources */,
 				30F53D1A1DA1071F0035C3C6 /* AppDelegate.swift in Sources */,
 				30EDFC6F1DEB1E5F003B861F /* FiguresDataSource.swift in Sources */,
 				30EA60041DB41DD200FA9028 /* Ring.swift in Sources */,
 				306EFA931DA4DF46000D5420 /* FigureUtils.swift in Sources */,
+				30803FF41DEB390300FAC443 /* FigureTypesDataSource.swift in Sources */,
+				30EDFC761DEB2747003B861F /* FigureContainer.swift in Sources */,
 				306EFA951DA4E045000D5420 /* Rectangle.swift in Sources */,
 				305DB8F11DBCFA8F00E1C2CB /* Ellipse.swift in Sources */,
 				30F53D291DA10B9D0035C3C6 /* Circle.swift in Sources */,

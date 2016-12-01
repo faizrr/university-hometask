@@ -12,6 +12,7 @@ protocol Figure {
     var layer: CAShapeLayer { get set }
     
     func show()
+    func hide()
     func moveTo(dx: Int32, dy: Int32)
     func setRandomColor()
 }

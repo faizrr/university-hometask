@@ -9,7 +9,6 @@
 import AppKit
 
 class FiguresDataSource: NSObject, Sequence, NSComboBoxDelegate, NSComboBoxDataSource {
-
     private var figures = [Figure]()
     
     func append(_ f: Figure){
